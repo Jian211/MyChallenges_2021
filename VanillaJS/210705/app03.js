@@ -16,7 +16,7 @@ generateNumber.addEventListener("input", (e) => rangeValue = e.target.value);
 guessNumber.addEventListener("input", (e) => userGuessNum = parseInt(e.target.value, 10));
 
 // Get random Value function.
-function randomValue(value){    return Math.floor(Math.random()*value);   } 
+function randomValue(rangeValue){    return Math.floor(Math.random()*rangeValue);   } 
 
 // Result.
 const result = () => {
