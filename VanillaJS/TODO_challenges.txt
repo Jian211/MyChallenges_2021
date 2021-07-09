@@ -27,3 +27,11 @@
     1. 사용자가 버튼을 누르면 배열에서 무작위로 두가지 색상을 선택 합니다.
     2. background-color의 
     
+
+7/9 ~ 12  Last challenge.
+    Clock.
+    Username (with localStorage).
+    To Do List (with localStorage)
+    Random Background Image.
+    Weather with Geolocation.
+    Make pretty CSS 💖
