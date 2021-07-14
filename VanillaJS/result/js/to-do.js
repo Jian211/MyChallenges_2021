@@ -8,21 +8,24 @@ let idValue = 1;
 const todoLists = [];
 const completList = [];
 
+
 const handleTodoLists = (event) => {    
     event.preventDefault();
-    
     const todoInputValue = todoGetInput.value;
-    // save to web storage.
+    
     todoLists.push(todoInputValue);
     localStorage.setItem("todo",JSON.stringify(todoLists));
 
     // make todo Form and show
-    makeTodoList(todoInputValue);
+    const savedTodoValue = JSON.parse(localStorage.getItem("todo"));
+    console.log(savedTodoValue)
+
+    makeTodoList(savedTodoValue);
 }
 
-
-
-const makeTodoList = ( todoInputValue ) =>{
+const makeTodoList = ( savedTodoValue ) => {
+    let savedValueList = savedTodoValue;
+    
     const addSetForm  = document.createElement("p");
     const addSetX     = document.createElement("span")
 
@@ -31,13 +34,23 @@ const makeTodoList = ( todoInputValue ) =>{
     addSetForm.setAttribute("id", `todo${todoNum}`);  
 
     addSetX.innerText    = "X";
-    addSetForm.innerText = todoInputValue; 
+    addSetForm.innerText = savedValueList; 
 
     addSetForm.append(addSetX);
     todoSetLists.append(addSetForm);
-}
+};
 
+if(localStorage.length){
+    const list = JSON.parse(localStorage.getItem("todo"));
+    list.forEach(item => {
+        makeTodoList(item);
+       // todoLists.push(item);
+    });
+}
 todoGetLabel.addEventListener("click", handleTodoLists);
+
+
+
 
 // To-Do Delete
 // 유저가 TOdo를 클릭하면
@@ -49,8 +62,6 @@ const aaa = (event)=> {
 }
 
 handleInput.addEventListener("click" , aaa)
-
-
 
 
 // To-Do complet 
